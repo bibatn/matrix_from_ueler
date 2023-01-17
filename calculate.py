@@ -56,5 +56,5 @@ def Quaternion2EulerAngles(w, x, y, z):
     return roll, pitch, yaw
     
 def q2matrix(w, x, y, z):
-  r, p, y = Quaternion2EulerAngles(z, x, y, w) #stupid but need
+  r, p, y = Quaternion2EulerAngles(z, w, x, y) #stupid but need
   return from_euler(r, p, y)
