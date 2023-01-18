@@ -45,16 +45,18 @@ def Quaternion2EulerAngles(w, x, y, z):
     print("pitch    ( radians )  : "+str(pitch))
     print("yaw      ( radians )  : "+str(yaw))
 
-    roll  = math.degrees(roll)
-    pitch = math.degrees(pitch)
-    yaw   = math.degrees(yaw)
+    roll_  = math.degrees(roll)
+    pitch_ = math.degrees(pitch)
+    yaw_   = math.degrees(yaw)
 
-    print("roll     ( degrees )  : "+str(roll))
-    print("pitch    ( degrees )  : "+str(pitch))
-    print("yaw      ( degrees )  : "+str(yaw))
+    print("roll     ( degrees )  : "+str(roll_))
+    print("pitch    ( degrees )  : "+str(pitch_))
+    print("yaw      ( degrees )  : "+str(yaw_))
 
     return roll, pitch, yaw
     
 def q2matrix(w, x, y, z):
   r, p, y = Quaternion2EulerAngles(z, w, x, y) #stupid but need
   return from_euler(r, p, y)
+  
+q2matrix(0.513, -0.471, 0.498, 0.517)
