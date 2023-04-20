@@ -1,3 +1,5 @@
+import math
+import numpy as np
 from math import acos, asin, atan2, cos, pi, radians, sin, sqrt
 def from_euler(roll, pitch, yaw):
     
@@ -60,3 +62,15 @@ def q2matrix(w, x, y, z):
   return from_euler(r, p, y)
   
 q2matrix(0.513, -0.471, 0.498, 0.517)
+
+inv = from_euler(math.radians(-87.81), math.radians(-1.17), math.radians(-86.36))
+translation = [0.528, 0.077, -0.482]
+inv = np.c_[inv, translation]
+inv = np.vstack([inv, [0, 0, 0, 1]])
+print(inv)
+A = np.linalg.inv(inv) 
+print(A)
+for i in range(4):
+  for j in range(4):
+    print(round(A[i][j], 4), ', ', end='', sep='')
+  print()
